@@ -1,14 +1,28 @@
-const winston = require('winston');
-const express = require('express');
-const app = express();
+const products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-require('./startup/logging')();
-require('./startup/routes')(app);
-require('./startup/db')();
-require('./startup/config')();
-require('./startup/validation')();
+//function sayHello() {}
 
-const port = process.env.PORT || 3000;
-const server = app.listen(port, () => winston.info(`Listening on port ${port}...`));
+const value = products.filter(filtereditem => filtereditem != 5);
 
-module.exports = server;
+const value1 = products.map(e => `<List value= ${e}>`);
+
+const family = {
+  father: "srinivasan",
+  mother: "kaveri",
+  son: "murali",
+  inlaw: "gayathri",
+  granddaugher: "sai karthika",
+  sayHello() {
+    console.log("Say Hi " + sayHi());
+  }
+};
+
+sayHi(function(number) {
+  console.log(number);
+});
+
+function sayHi(callback) {
+  setTimeout(() => {
+    callback(5);
+  }, 1000);
+}
